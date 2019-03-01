@@ -1,4 +1,5 @@
-$(function () {
-    // 获取页面中所有属性是data-toggle="tolltip" 的元素 调用了tooltip函数(初始化要函数)
+$(function() {
+    //获取工具提示的元素 初始化工具提示插件
+    // 默认没有初始化需要手动初始化
     $('[data-toggle="tooltip"]').tooltip()
 })

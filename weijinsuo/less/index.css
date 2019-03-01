@@ -1,3 +1,4 @@
+/* 头部区域 */
 #header {
   border-bottom: 1px solid #ccc;
 }
@@ -19,10 +20,10 @@
   left: 50%;
   transform: translateX(-50%);
   display: none;
+  z-index: 999;
 }
 #header .container .row > div .link:hover img {
   display: block;
-  z-index: 999;
 }
 #header .container .row > div ~ div {
   border-left: 1px solid #ccc;
@@ -30,10 +31,14 @@
 #header .container .row > div .btn-link {
   color: #666;
 }
+#header .container .row > div .form-horizontal .control-label {
+  padding-top: 0;
+}
+/* 导航区域 */
 #nav {
   background-color: #fff;
   margin-bottom: 0;
-  z-index: 3;
+  z-index: 997;
   width: 100%;
   top: 0;
 }
@@ -51,24 +56,25 @@
   color: #e92322;
 }
 #nav .navbar-header .navbar-brand .icon-logo {
-  color: #000;
+  color: #333;
 }
 #nav .navbar-collapse .navbar-nav li a {
   height: 80px;
   line-height: 50px;
+}
+#nav .navbar-collapse .navbar-nav li a:hover {
+  border-bottom: 2px solid #e92322;
+}
+#nav .navbar-collapse .navbar-nav li.active a {
   background-color: #fff;
-}
-#nav .navbar-collapse .navbar-nav li:hover {
   border-bottom: 2px solid #e92322;
 }
-#nav .navbar-collapse .navbar-nav .active {
-  border-bottom: 2px solid #e92322;
-}
-#banner .large-img {
+/* 轮播图区域的样式 */
+#slide .large-img {
   height: 410px;
   background-position: center center;
 }
-#banner .small-img {
+#slide .small-img {
   width: 100%;
 }
 #feature {
@@ -89,6 +95,7 @@
 #booking .text-danger {
   color: #e92322;
 }
+/* 商品区域 */
 #products {
   padding: 40px 0;
   background-color: #eee;
@@ -125,14 +132,17 @@
   top: -6px;
 }
 #products .tab-content .product .left {
-  padding: 10px;
   flex: 1;
+  padding: 15px;
 }
 #products .tab-content .product .left .title {
   text-align: center;
 }
 #products .tab-content .product .left .content .row div {
   margin-bottom: 10px;
+}
+#products .tab-content .product .left .content .row div:nth-child(2n) {
+  text-align: right;
 }
 #products .tab-content .product .left .content .row div p {
   margin-bottom: 0;
@@ -146,6 +156,16 @@
   align-items: center;
   position: relative;
 }
+@media (max-width: 340px) {
+  #products .tab-content .product .right {
+    width: 100px;
+  }
+}
+@media (min-width: 992px) and (max-width: 1200px) {
+  #products .tab-content .product .right {
+    width: 100px;
+  }
+}
 #products .tab-content .product .right p {
   margin-bottom: 0;
 }
@@ -154,13 +174,13 @@
 }
 #products .tab-content .product .right::before,
 #products .tab-content .product .right::after {
-  content: "";
+  content: '';
+  position: absolute;
   width: 16px;
   height: 16px;
-  border-radius: 50%;
   background-color: #eee;
-  position: absolute;
   left: -8px;
+  border-radius: 50%;
 }
 #products .tab-content .product .right::before {
   top: -8px;
@@ -169,21 +189,22 @@
   bottom: -8px;
 }
 #products .tab-content .product .right .tooltips {
-  width: 100%;
   position: absolute;
   top: 20px;
+  width: 100%;
   text-align: center;
 }
 #products .tab-content .product .right .tooltips button:first-child {
   color: #e92322;
-  border-color: #e92322;
+  border: 1px solid #e92322;
   background-color: #fff;
 }
 #products .tab-content .product .right .tooltips button:last-of-type {
   color: #0f0;
-  border-color: #0f0;
+  border: 1px solid #0f0;
   background-color: #fff;
 }
+/* 新闻区域样式 */
 #news {
   padding: 40px 0;
 }
@@ -194,7 +215,7 @@
   position: relative;
 }
 #news .row > div h4::after {
-  content: "";
+  content: '';
   position: absolute;
   right: -10px;
   bottom: -5px;
@@ -206,10 +227,20 @@
 #news .row > div .nav-tabs {
   border-bottom: 0;
 }
+@media (max-width: 991px) {
+  #news .row > div .nav-tabs li {
+    width: 25%;
+  }
+  #news .row > div .nav-tabs li a {
+    width: 60px;
+    margin: 0px auto;
+  }
+}
 #news .row > div .nav-tabs li a {
   border-radius: 50%;
   margin-bottom: 20px;
   color: #ccc;
+  border: 0;
 }
 #news .row > div .nav-tabs li a i {
   font-size: 30px;
@@ -219,11 +250,11 @@
 }
 #news .row > div .nav-tabs li.active a {
   background-color: #e92322;
-  border: 0;
 }
 #news .row > div .tab-content .list-group-item {
   border: 0;
 }
+/* 合作伙伴区域的样式 */
 #footer {
   padding: 20px 0;
 }
@@ -235,13 +266,14 @@
   text-align: center;
   color: #666;
 }
-#footer .content a i {
-  font-size: 60px;
-}
 #footer .content a:hover {
   color: #e92322;
   text-decoration: none;
 }
-#footer .content a :focus {
-  border: 0;
+#footer .content a:focus {
+  text-decoration: none;
+  outline: 0;
+}
+#footer .content a i {
+  font-size: 60px;
 }
